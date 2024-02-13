@@ -28,6 +28,7 @@ namespace App.World.Entity.Enemy
             rigidBody = GetComponent<Rigidbody2D>();
             stateMachine = new StateMachine();
             followState = new FollowState(this, stateMachine);
+            stateMachine.Initialize(followState); //TODO: SpawningState
         }
 
         public virtual void Init(Transform target)
