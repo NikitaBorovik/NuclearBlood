@@ -9,6 +9,9 @@ namespace App.World.Entity.Enemy
     {
         private Transform target;
         private Rigidbody2D rigidBody;
+        private Animator animator;
+        private Health health;
+
         protected StateMachine stateMachine;
 
         protected BaseEnemyState attackState;
@@ -19,6 +22,8 @@ namespace App.World.Entity.Enemy
         public EnemyData EnemyData => enemyData;
         public Transform Target => target;
         public Rigidbody2D RigidBody => rigidBody;
+        public Animator Animator => animator;
+        public Health Health => health;
 
         public BaseEnemyState AttackState => attackState;
         public FollowState FollowState => followState;
@@ -26,6 +31,8 @@ namespace App.World.Entity.Enemy
         public virtual void Awake()
         {
             rigidBody = GetComponent<Rigidbody2D>();
+            animator = GetComponent<Animator>();
+            health = GetComponent<Health>();
             stateMachine = new StateMachine();
             followState = new FollowState(this, stateMachine);
             stateMachine.Initialize(followState); //TODO: SpawningState
