@@ -12,5 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c3e44c67f93c234682889c267bfe064, type: 3}
   m_Name: BasicZombie
   m_EditorClassIdentifier: 
+  maxHealth: 25
   speed: 5
   attackRange: 1
+  damage: 10
+  timeBetweenAttacks: 0.3
+  spawnAnimationDuration: 1

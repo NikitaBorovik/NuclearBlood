@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace App.World.Entity.Enemy
 {
-    public class BaseEnemy : MonoBehaviour
+    public class BaseEnemy : MonoBehaviour, IKillable
     {
         private Transform target;
         private Rigidbody2D rigidBody;
@@ -16,10 +16,14 @@ namespace App.World.Entity.Enemy
 
         protected BaseEnemyState attackState;
         private FollowState followState;
+        private SpawningState spawningState;
+        private DieState dieState;
 
         [SerializeField] EnemyData enemyData;
+        [SerializeField] protected List<Collider2D> myColliders;
 
         public EnemyData EnemyData => enemyData;
+        public List<Collider2D> MyColliders => myColliders;
         public Transform Target => target;
         public Rigidbody2D RigidBody => rigidBody;
         public Animator Animator => animator;
@@ -33,19 +37,43 @@ namespace App.World.Entity.Enemy
             rigidBody = GetComponent<Rigidbody2D>();
             animator = GetComponent<Animator>();
             health = GetComponent<Health>();
+            
+
             stateMachine = new StateMachine();
+            spawningState = new SpawningState(this, stateMachine);
+            dieState = new DieState(this, stateMachine);
             followState = new FollowState(this, stateMachine);
-            stateMachine.Initialize(followState); //TODO: SpawningState
+            stateMachine.Initialize(spawningState);
         }
 
         public virtual void Init(Transform target)
         {
             this.target = target;
+            health.MaxHealth = enemyData.maxHealth;
+            health.HealToMax();
         }
         
         void Update()
         {
             stateMachine.CurrentState.Update();
+        }
+
+        public void Die()
+        {
+            if (stateMachine.CurrentState != dieState)
+            {
+                StopAllCoroutines();
+                stateMachine.ChangeState(dieState);
+                //DropExperience();
+                //DropHealing();
+                //OnDied?.CallDieEvent();
+            }
+        }
+
+        public void DyingSequence()
+        {
+            //waveSystem.ReportKilled(EnemyData.type);
+            //objectPool.ReturnToPool(this);
         }
     }
 }

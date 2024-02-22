@@ -7,6 +7,10 @@ namespace App.World.Entity.Enemy
 {
     public class MeleeEnemy : BaseEnemy
     {
+        [SerializeField] private DamagePlayer attack;
+
+        public GameObject Attack => attack.gameObject;
+
         public override void Awake()
         {
             base.Awake();
@@ -16,7 +20,7 @@ namespace App.World.Entity.Enemy
         public override void Init(Transform target)
         {
             base.Init(target);
-
+            attack.Init(EnemyData.damage);
         }
     }
 }
