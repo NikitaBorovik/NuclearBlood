@@ -1,4 +1,6 @@
+using App.Upgrades;
 using App.World.Entity.Player.Events;
+using App.World.Entity.Player.Weapons;
 using UnityEngine;
 
 namespace App.World.Entity.Player.PlayerComponents
@@ -26,6 +28,9 @@ namespace App.World.Entity.Player.PlayerComponents
         [SerializeField]
         private Transform weaponAnchor;
         [SerializeField]
+        private GameObject curWeaponObj;
+        private Weapon weapon;
+        [SerializeField]
         private Transform weaponPoint;
         #endregion
 
@@ -52,6 +57,9 @@ namespace App.World.Entity.Player.PlayerComponents
         public MovementEvent MovementEvent { get => movementEvent; }
         public float MovementSpeed { get => movementSpeed; set => movementSpeed = value; }
         public Transform WeaponPoint { get => weaponPoint; set => weaponPoint = value; }
+        public GameObject CurWeaponObj { get => curWeaponObj; set => curWeaponObj = value; }
+
+        public Weapon Weapon {get => weapon; set => weapon = value;}
         #endregion
 
         private void Awake()
@@ -62,7 +70,7 @@ namespace App.World.Entity.Player.PlayerComponents
         {
             playerTransform = GetComponent<Transform>();
             pAnimator = GetComponent<Animator>();
-            
+            weapon = CurWeaponObj.GetComponent<Weapon>();
             movementSpeed = playerData.speed;
         }
     }

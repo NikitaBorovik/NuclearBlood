@@ -381,8 +381,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -848955857
-  m_SortingLayer: 0
+  m_SortingLayerID: 289661383
+  m_SortingLayer: 1
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 849dcff23e6c7594b8a0360bf24bdbde, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -394,7 +394,7 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
-  m_SpriteSortPoint: 0
+  m_SpriteSortPoint: 1
 --- !u!114 &-1549838980822176894
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -524,6 +524,7 @@ MonoBehaviour:
   playerData: {fileID: 11400000, guid: 3d8290388248f18408449836cffe87bc, type: 2}
   shootPosition: {fileID: 3868616040937354051}
   weaponAnchor: {fileID: 2742779675602075462}
+  curWeaponObj: {fileID: 4594474273930406833}
   weaponPoint: {fileID: 3868616040937354051}
   aimEvent: {fileID: -1549838980822176894}
   standEvent: {fileID: 2098125619001022077}
@@ -717,6 +718,74 @@ Transform:
   m_LocalPosition: {x: 0.429, y: -0.33, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 2941375693899151060}
   m_Father: {fileID: 2742779675602075462}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &1966698535839159419
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 3868616040937354051}
+    m_Modifications:
+    - target: {fileID: 2632855254469951434, guid: 7333f724bbeb85942b0e01af570d4b36, type: 3}
+      propertyPath: m_Name
+      value: GatlingGunPrefab
+      objectReference: {fileID: 0}
+    - target: {fileID: 3718496072317461167, guid: 7333f724bbeb85942b0e01af570d4b36, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3718496072317461167, guid: 7333f724bbeb85942b0e01af570d4b36, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3718496072317461167, guid: 7333f724bbeb85942b0e01af570d4b36, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3718496072317461167, guid: 7333f724bbeb85942b0e01af570d4b36, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3718496072317461167, guid: 7333f724bbeb85942b0e01af570d4b36, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3718496072317461167, guid: 7333f724bbeb85942b0e01af570d4b36, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3718496072317461167, guid: 7333f724bbeb85942b0e01af570d4b36, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3718496072317461167, guid: 7333f724bbeb85942b0e01af570d4b36, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3718496072317461167, guid: 7333f724bbeb85942b0e01af570d4b36, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3718496072317461167, guid: 7333f724bbeb85942b0e01af570d4b36, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 7333f724bbeb85942b0e01af570d4b36, type: 3}
+--- !u!4 &2941375693899151060 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3718496072317461167, guid: 7333f724bbeb85942b0e01af570d4b36, type: 3}
+  m_PrefabInstance: {fileID: 1966698535839159419}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &4594474273930406833 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2632855254469951434, guid: 7333f724bbeb85942b0e01af570d4b36, type: 3}
+  m_PrefabInstance: {fileID: 1966698535839159419}
+  m_PrefabAsset: {fileID: 0}

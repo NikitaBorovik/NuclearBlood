@@ -13,6 +13,7 @@ namespace App.Systems.Input
         {
             HandleAimInput();
             HandleMoveInput();
+            HandleShootInput();
         }
         public void Init(Camera mainCamera, Player player)
         {
@@ -66,6 +67,13 @@ namespace App.Systems.Input
             else
             {
                 player.MovementEvent.CallMovementEvent(movingDirection, player.MovementSpeed);
+            }
+        }
+        private void HandleShootInput()
+        {
+            if (UnityEngine.Input.GetMouseButton(0))
+            {
+                player.Weapon.ShootEvent.CallShootEvent();
             }
         }
     }
