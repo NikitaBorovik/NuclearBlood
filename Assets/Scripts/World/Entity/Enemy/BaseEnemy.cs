@@ -1,17 +1,19 @@
 using App.World.Entity.Enemy.States;
+using App.World.Items;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 namespace App.World.Entity.Enemy
 {
-    public class BaseEnemy : MonoBehaviour, IKillable
+    public class BaseEnemy : MonoBehaviour, IKillable, IObjectPoolItem
     {
         private Transform target;
         private Rigidbody2D rigidBody;
         private Animator animator;
         private Health health;
 
+        protected ObjectPool objectPool;
         protected StateMachine stateMachine;
 
         protected BaseEnemyState attackState;
@@ -32,25 +34,31 @@ namespace App.World.Entity.Enemy
         public BaseEnemyState AttackState => attackState;
         public FollowState FollowState => followState;
 
+        public string PoolObjectType => enemyData.type;
+
         public virtual void Awake()
         {
             rigidBody = GetComponent<Rigidbody2D>();
             animator = GetComponent<Animator>();
             health = GetComponent<Health>();
-            
 
             stateMachine = new StateMachine();
             spawningState = new SpawningState(this, stateMachine);
             dieState = new DieState(this, stateMachine);
             followState = new FollowState(this, stateMachine);
-            stateMachine.Initialize(spawningState);
+            
         }
 
-        public virtual void Init(Transform target)
+        public virtual void Init(Vector3 position, Transform target)
         {
             this.target = target;
+            transform.position = position;
             health.MaxHealth = enemyData.maxHealth;
             health.HealToMax();
+            if(stateMachine.CurrentState == null)
+                stateMachine.Initialize(spawningState);
+            else
+                stateMachine.ChangeState(spawningState);
         }
         
         void Update()
@@ -64,16 +72,54 @@ namespace App.World.Entity.Enemy
             {
                 StopAllCoroutines();
                 stateMachine.ChangeState(dieState);
-                //DropExperience();
-                //DropHealing();
+                DropMoney();
+                DropHealing();
                 //OnDied?.CallDieEvent();
+            }
+        }
+
+        private void DropMoney()
+        {
+            if (Random.value <= enemyData.moneyDropChance)
+            {
+                int count = Random.Range(enemyData.minMoneyDrop, enemyData.maxMoneyDrop + 1);
+                for (int i = 0; i < count; i++)
+                {
+                    GameObject money = objectPool.GetObjectFromPool(enemyData.moneyPrefab.PoolObjectType, enemyData.moneyPrefab.gameObject, transform.position).GetGameObject();
+                    money.GetComponent<MoneyDropItem>().Init(transform.position);
+                }
+            }
+        }
+        private void DropHealing()
+        {
+            if (Random.value <= enemyData.healingDropChance)
+            {
+                GameObject healing = objectPool.GetObjectFromPool(enemyData.healingPrefab.PoolObjectType, enemyData.healingPrefab.gameObject, transform.position).GetGameObject();
+                healing.GetComponent<HealingDropItem>().Init(transform.position);
+
             }
         }
 
         public void DyingSequence()
         {
             //waveSystem.ReportKilled(EnemyData.type);
-            //objectPool.ReturnToPool(this);
+            objectPool.ReturnToPool(this);
+        }
+
+        public void GetFromPool(ObjectPool pool)
+        {
+            objectPool = pool;
+            gameObject.SetActive(true);
+        }
+
+        public void ReturnToPool()
+        {
+            gameObject.SetActive(false);
+        }
+
+        public GameObject GetGameObject()
+        {
+            return gameObject;
         }
     }
 }

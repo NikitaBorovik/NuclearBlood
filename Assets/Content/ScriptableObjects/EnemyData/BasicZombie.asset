@@ -12,9 +12,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c3e44c67f93c234682889c267bfe064, type: 3}
   m_Name: BasicZombie
   m_EditorClassIdentifier: 
+  type: BasicZombie
   maxHealth: 25
   speed: 5
   attackRange: 1
   damage: 10
   timeBetweenAttacks: 0.3
   spawnAnimationDuration: 1
+  moneyDropChance: 0.2
+  healingDropChance: 0.05
+  minMoneyDrop: 1
+  maxMoneyDrop: 3
+  healingPrefab: {fileID: 6659669798819706568, guid: 331ced9c966a53d44a89acea8f3876c9, type: 3}
+  moneyPrefab: {fileID: 1915607931808861024, guid: 20e5ffa1fcba25a4ca5b6ed0f57c0ef1, type: 3}

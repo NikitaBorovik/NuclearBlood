@@ -17,9 +17,9 @@ namespace App.World.Entity.Enemy
             attackState = new MeleeAttackState(this, stateMachine);
         }
 
-        public override void Init(Transform target)
+        public override void Init(Vector3 position, Transform target)
         {
-            base.Init(target);
+            base.Init(position, target);
             attack.Init(EnemyData.damage);
         }
     }
