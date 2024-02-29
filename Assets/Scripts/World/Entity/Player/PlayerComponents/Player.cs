@@ -13,7 +13,7 @@ namespace App.World.Entity.Player.PlayerComponents
     [RequireComponent(typeof(Aim))]
     [RequireComponent(typeof(Stand))]
     #endregion
-    public class Player : MonoBehaviour
+    public class Player : MonoBehaviour, IUpgradable
     {
         #region Components
         private Transform playerTransform;
@@ -72,6 +72,11 @@ namespace App.World.Entity.Player.PlayerComponents
             pAnimator = GetComponent<Animator>();
             weapon = CurWeaponObj.GetComponent<Weapon>();
             movementSpeed = playerData.speed;
+        }
+        
+        public void EnableUpgrade(IUpgradeAbstractVisitor upgrade)
+        {
+            IUpgradable.EnableUpgradeViaVisitorOf(this, upgrade);
         }
     }
 }
