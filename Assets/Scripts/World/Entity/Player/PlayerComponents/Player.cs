@@ -18,6 +18,7 @@ namespace App.World.Entity.Player.PlayerComponents
         #region Components
         private Transform playerTransform;
         private Animator pAnimator;
+        private Health health;
         [SerializeField]
         private PlayerDataSO playerData;
         #endregion
@@ -60,6 +61,7 @@ namespace App.World.Entity.Player.PlayerComponents
         public GameObject CurWeaponObj { get => curWeaponObj; set => curWeaponObj = value; }
 
         public Weapon Weapon {get => weapon; set => weapon = value;}
+        public Health Health { get => health; set => health = value; }
         #endregion
 
         private void Awake()
@@ -71,6 +73,8 @@ namespace App.World.Entity.Player.PlayerComponents
             playerTransform = GetComponent<Transform>();
             pAnimator = GetComponent<Animator>();
             weapon = CurWeaponObj.GetComponent<Weapon>();
+            health = GetComponent<Health>();
+            health.MaxHealth = playerData.maxHealth;
             movementSpeed = playerData.speed;
         }
         

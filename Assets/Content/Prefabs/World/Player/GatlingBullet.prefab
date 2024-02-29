@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 6699174986344805491}
   - component: {fileID: 738058756460426929}
   - component: {fileID: 3739194104834140470}
-  m_Layer: 11
+  m_Layer: 8
   m_Name: GatlingBullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}

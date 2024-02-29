@@ -11,18 +11,18 @@ TagManager:
   - 
   - Water
   - UI
-  - Entitites
+  - Enemy
   - WorldBorders
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  - Bullet
+  - Player
+  - DropableItem
+  - ItemWallCollider
+  - EnemyCollider
+  - EnemyAttack
+  - Button
+  - Player Interactor
+  - ParticleLimiter
+  - Shop
   - 
   - 
   - 

@@ -21,21 +21,21 @@ namespace App.World.Entity.Player.Weapons
                 objectPool.ReturnToPool(this);
                 return;
             }
-            //Health targetHealt = collision.GetComponent<Health>();
-            //if (targetHealt == null)
-            //{
-            //    return;
-            //}
-            //targetHealt.TakeDamage(damage);
-            //if (pearcingCount > 0)
-            //{
-            //    pearcingCount--;
-            //}
-            //else
-            //{
-            //    objectPool.ReturnToPool(this);
-            //}
- 
+            Health targetHealt = collision.GetComponent<Health>();
+            if (targetHealt == null)
+            {
+                return;
+            }
+            targetHealt.TakeDamage(damage);
+            if (pearcingCount > 0)
+            {
+                pearcingCount--;
+            }
+            else
+            {
+                objectPool.ReturnToPool(this);
+            }
+
         }
         public virtual void Init(float damage, int pearcingCount)
         {

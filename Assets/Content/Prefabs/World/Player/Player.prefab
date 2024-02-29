@@ -70,8 +70,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -848955857
-  m_SortingLayer: 0
+  m_SortingLayerID: 289661383
+  m_SortingLayer: 1
   m_SortingOrder: -1
   m_Sprite: {fileID: 21300000, guid: 359778aff35c8be48a8d3b2d9f3ccc5b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -187,8 +187,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -848955857
-  m_SortingLayer: 0
+  m_SortingLayerID: 289661383
+  m_SortingLayer: 1
   m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: 359778aff35c8be48a8d3b2d9f3ccc5b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -224,6 +224,7 @@ GameObject:
   - component: {fileID: 6807524175591001933}
   - component: {fileID: 8719643415092637599}
   - component: {fileID: 6033909077655255883}
+  - component: {fileID: 8382543183854102905}
   m_Layer: 6
   m_Name: Player
   m_TagString: Untagged
@@ -297,7 +298,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 1
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!61 &8477644004623251078
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -529,6 +530,19 @@ MonoBehaviour:
   aimEvent: {fileID: -1549838980822176894}
   standEvent: {fileID: 2098125619001022077}
   movementEvent: {fileID: 4796191828594616004}
+--- !u!114 &8382543183854102905
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6507753712811452871}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2fda39e2b7169c4298eccac0fd3e09f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  blinkTime: 0.125
 --- !u!1 &6751437911536196898
 GameObject:
   m_ObjectHideFlags: 0
@@ -773,6 +787,14 @@ PrefabInstance:
     - target: {fileID: 3718496072317461167, guid: 7333f724bbeb85942b0e01af570d4b36, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5739291457665358033, guid: 7333f724bbeb85942b0e01af570d4b36, type: 3}
+      propertyPath: m_SortingLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5739291457665358033, guid: 7333f724bbeb85942b0e01af570d4b36, type: 3}
+      propertyPath: m_SortingLayerID
+      value: 289661383
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
