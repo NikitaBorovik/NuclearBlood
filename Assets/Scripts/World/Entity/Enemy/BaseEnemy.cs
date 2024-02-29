@@ -51,6 +51,7 @@ namespace App.World.Entity.Enemy
 
         public virtual void Init(Vector3 position, Transform target)
         {
+
             this.target = target;
             transform.position = position;
             health.MaxHealth = enemyData.maxHealth;

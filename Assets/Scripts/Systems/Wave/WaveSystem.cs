@@ -16,10 +16,15 @@ public class WaveSystem : MonoBehaviour, IWaveSystem
         StartCoroutine(Wave());
     }
 
+    //TEMPORARY
     private IEnumerator Wave()
     {
-        enemySpawningSystem.SpawnEnemy(enemies[0].gameObject, 1);
-        yield return new WaitForSeconds(3f);
+        while(true)
+        {
+            enemySpawningSystem.SpawnEnemy(enemies[0].gameObject, 1);
+            yield return new WaitForSeconds(3f);
+        }
+        
     }
 
     public void ReportKilled(string enemyType)

@@ -4,6 +4,8 @@ using App.World;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using App.Systems.EnemySpawning;
+using App.World.Entity;
 
 namespace App
 {
@@ -11,15 +13,24 @@ namespace App
     {
         [SerializeField]
         private InputSystem inputSystem;
+        [SerializeField]
+        private EnemySpawningSystem enemySpawningSystem;
+        [SerializeField]
+        private WaveSystem waveSystem;
         
         [SerializeField]
         private ObjectsContainer objectsContainer;
         [SerializeField]
         private Camera mainCamera;
 
+        [SerializeField]
+        private ObjectPool objectPool;
+
         private void Start()
         {
             inputSystem.Init(mainCamera, objectsContainer.Player.GetComponent<Player>());
+            enemySpawningSystem.Init(objectPool, objectsContainer.Player.transform);
+            waveSystem.Init(enemySpawningSystem);
         }
 
     }
