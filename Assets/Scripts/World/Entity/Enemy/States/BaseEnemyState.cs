@@ -15,10 +15,10 @@ namespace App.World.Entity.Enemy.States
             this.stateMachine = stateMachine;
         }
 
-        public abstract void Enter();
+        public virtual void Enter() { }
 
-        public abstract void Exit();
+        public virtual void Exit() { }
 
-        public abstract void Update();
+        public virtual void Update() { }
     }
 }
