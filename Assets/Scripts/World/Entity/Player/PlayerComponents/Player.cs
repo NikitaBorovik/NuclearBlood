@@ -1,3 +1,4 @@
+using App.UI.Events;
 using App.Upgrades;
 using App.World.Entity.Player.Events;
 using App.World.Entity.Player.Weapons;
@@ -42,10 +43,13 @@ namespace App.World.Entity.Player.PlayerComponents
         private StandEvent standEvent;
         [SerializeField]
         private MovementEvent movementEvent;
+        [SerializeField]
+        private CountUpdatedEvent countUpdatedEvent;
         #endregion
 
         #region Parameters
         private float movementSpeed;
+        private int money;
         #endregion
 
         #region Properties
@@ -61,6 +65,7 @@ namespace App.World.Entity.Player.PlayerComponents
         public GameObject CurWeaponObj { get => curWeaponObj; set => curWeaponObj = value; }
 
         public Weapon Weapon {get => weapon; set => weapon = value;}
+        public int Money { get => money; set { money = value; countUpdatedEvent?.CallCountUpdatedEvent(value); } }
         public Health Health { get => health; set => health = value; }
         #endregion
 
