@@ -1,5 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
+using App.World.Entity.Player.PlayerComponents;
 using UnityEngine;
 
 namespace App.World.Items
@@ -18,7 +17,7 @@ namespace App.World.Items
         private void OnTriggerEnter2D(Collider2D collision)
         {
             Debug.Log($"Player picked up {price}$");
-            //collision.gameObject.GetComponent<Player>().Money += price;
+            collision.gameObject.GetComponent<Player>().Money += price;
             objectPool.ReturnToPool(this);
         }
     }

@@ -16,7 +16,7 @@ namespace App.World.Entity
         private Coroutine blinkRoutine;
 
         [SerializeField] private float blinkTime;
-        //public ValueUpdateEvent healthUpdateEvent;
+        [SerializeField] ValueUpdatedEvent healthUpdateEvent;
 
 
         public float CurrentHealth
@@ -33,8 +33,7 @@ namespace App.World.Entity
                 else
                     currentHealth = value;
 
-                //healthUpdateEvent?.CallValueUpdateEvent(prev, currentHealth, MaxHealth);
-
+                healthUpdateEvent?.CallValueUpdateEvent(prev, currentHealth, MaxHealth);
             }
         }
 
