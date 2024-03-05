@@ -6,6 +6,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using App.Systems.EnemySpawning;
 using App.World.Entity;
+using App.Systems.GameStates;
+using App.World.Gates;
 
 namespace App
 {
@@ -17,7 +19,8 @@ namespace App
         private EnemySpawningSystem enemySpawningSystem;
         [SerializeField]
         private WaveSystem waveSystem;
-        
+        [SerializeField]
+        private GameStatesSystem gameStatesSystem;
         [SerializeField]
         private ObjectsContainer objectsContainer;
         [SerializeField]
@@ -31,6 +34,7 @@ namespace App
             inputSystem.Init(mainCamera, objectsContainer.Player.GetComponent<Player>());
             enemySpawningSystem.Init(objectPool, objectsContainer.Player.transform);
             waveSystem.Init(enemySpawningSystem);
+            gameStatesSystem.Init(waveSystem, objectsContainer.Gates.GetComponent<Gates>());
         }
 
     }

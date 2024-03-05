@@ -1,3 +1,4 @@
+using App.Systems.GameStates;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,10 +7,10 @@ namespace App.World.Items.Gates
 {
     public class ExitTheBase : MonoBehaviour
     {
-        
-        public void Init()
+        private GameStatesSystem gameStatesSystem;
+        public void Init(GameStatesSystem gameStatesSystem)
         {
-            
+            this.gameStatesSystem = gameStatesSystem;
         }
         private void OnTriggerEnter2D(Collider2D collision)
         {
@@ -18,7 +19,7 @@ namespace App.World.Items.Gates
         private void Exit()
         {
             gameObject.SetActive(false);
-            
+            gameStatesSystem.FightingState();
         }
     }
 }
