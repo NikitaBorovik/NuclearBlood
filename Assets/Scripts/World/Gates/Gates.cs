@@ -1,3 +1,5 @@
+using App.Systems.GameStates;
+using App.World.Items.Gates;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -7,19 +9,18 @@ namespace App.World.Gates
     public class Gates : MonoBehaviour
     {
         private BoxCollider2D m_BoxCollider;
+        private GameStatesSystem gameStatesSystem;
         [SerializeField]
         private GameObject exitChecker;
         private Animator m_Animator;
 
-        private void Awake()
+
+        public void Init(GameStatesSystem gameStatesSystem)
         {
-            Init();
-        }
-        public void Init()
-        {
+            this.gameStatesSystem = gameStatesSystem;
+            exitChecker.GetComponent<ExitTheBase>().Init(gameStatesSystem);
             m_BoxCollider = GetComponent<BoxCollider2D>();
             m_Animator = GetComponent<Animator>();
-            Open();
         }
         public void Open()
         {
