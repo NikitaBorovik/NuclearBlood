@@ -10,14 +10,15 @@ namespace App.Systems.EnemySpawning
     {
         private ObjectPool objectPool;
         private Transform enemyTarget;
+        private IWaveSystem waveSystem;
 
         [SerializeField]
         private Transform bottomLeftBound;
         [SerializeField]
         private Transform topRightBound;
-        public void Init(/*IWaveSystem waveSystem,*/ ObjectPool objectPool, Transform enemyTarget)
+        public void Init(IWaveSystem waveSystem, ObjectPool objectPool, Transform enemyTarget)
         {
-            //this.waveSystem = waveSystem;
+            this.waveSystem = waveSystem;
             this.objectPool = objectPool;
             this.enemyTarget = enemyTarget;
         }
@@ -40,7 +41,7 @@ namespace App.Systems.EnemySpawning
                 Debug.Log("Error, took enemy out of object pool, but didn't find BaseEnemy script on it");
                 return;
             }
-            baseEnemy.Init(position, enemyTarget/*, waveSystem, enemyHpMultiplier*/);
+            baseEnemy.Init(position, enemyTarget, waveSystem, enemyHpMultiplier);
         }
     }
 }

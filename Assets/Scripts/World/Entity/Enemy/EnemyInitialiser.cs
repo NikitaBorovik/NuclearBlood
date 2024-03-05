@@ -11,7 +11,7 @@ namespace App.World.Entity.Enemy
 
         private void Start()
         {
-            enemy.Init(Vector3.zero, target);
+            //enemy.Init(Vector3.zero, target);
         }
     }
 }

@@ -25,3 +25,9 @@ MonoBehaviour:
   maxMoneyDrop: 3
   healingPrefab: {fileID: 6659669798819706568, guid: 331ced9c966a53d44a89acea8f3876c9, type: 3}
   moneyPrefab: {fileID: 1915607931808861024, guid: 20e5ffa1fcba25a4ca5b6ed0f57c0ef1, type: 3}
+  firstSpawningWave: 1
+  dangerLevel: 5
+  gruntSounds: []
+  attackSounds: []
+  minTimeBetweenGrunts: 10
+  maxTimeBetweenGrunts: 15

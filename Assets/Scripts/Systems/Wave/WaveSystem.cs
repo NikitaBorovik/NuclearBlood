@@ -1,4 +1,5 @@
 using App.Systems.EnemySpawning;
+using App.Systems.GameStates;
 using App.World.Entity.Enemy;
 using System.Collections;
 using System.Collections.Generic;
@@ -8,7 +9,7 @@ public class WaveSystem : MonoBehaviour, IWaveSystem
 {
     private int waveNum = 1;
     private EnemySpawningSystem enemySpawningSystem;
-    //private GameStatesSystem gameStatesSystem;
+    private GameStatesSystem gameStatesSystem;
     private int enemiesAlive = 0;
     private int dangerLevelLeft;
     private List<BaseEnemy> allowedEnemies = new List<BaseEnemy>();
@@ -23,10 +24,10 @@ public class WaveSystem : MonoBehaviour, IWaveSystem
     [SerializeField] private float nextWaveDangerLevelMultiplier;
     [SerializeField] private List<BaseEnemy> enemies;
 
-    public void Init(EnemySpawningSystem enemySpawningSystem /*, GameStatesSystem gameStatesSystem*/)
+    public void Init(EnemySpawningSystem enemySpawningSystem, GameStatesSystem gameStatesSystem)
     {
         this.enemySpawningSystem = enemySpawningSystem;
-        //this.gameStatesSystem = gameStatesSystem;
+        this.gameStatesSystem = gameStatesSystem;
         CalculateEnemyWeights();
     }
 
@@ -95,7 +96,7 @@ public class WaveSystem : MonoBehaviour, IWaveSystem
         Debug.Log("Wave ended");
         waveNum++;
         CalculateNextDangerLevel();
-        //gameStatesSystem.RestingState();
+        gameStatesSystem.RestingState();
     }
 
     public void ReportKilled(string enemyType)

@@ -23,7 +23,7 @@ namespace App.Systems.GameStates
         }
         public void Enter()
         {
-            //waveSystem.StartWave();
+            waveSystem.StartWave();
             gameStatesSystem.StartCoroutine(StartMusic());
         }
         public void Exit()

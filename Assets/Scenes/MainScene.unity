@@ -1990,6 +1990,26 @@ PrefabInstance:
       propertyPath: bottomLeftBound
       value: 
       objectReference: {fileID: 1979374365}
+    - target: {fileID: 3757365502643948822, guid: 3629e3a174f81f141b52f2815581f854, type: 3}
+      propertyPath: enemyHpIncrease
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3757365502643948822, guid: 3629e3a174f81f141b52f2815581f854, type: 3}
+      propertyPath: maxTimeBetweenSubwaves
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 3757365502643948822, guid: 3629e3a174f81f141b52f2815581f854, type: 3}
+      propertyPath: minTimeBetweenSubwaves
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3757365502643948822, guid: 3629e3a174f81f141b52f2815581f854, type: 3}
+      propertyPath: subWaveDangerPercentage
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3757365502643948822, guid: 3629e3a174f81f141b52f2815581f854, type: 3}
+      propertyPath: nextWaveDangerLevelMultiplier
+      value: 1.1
+      objectReference: {fileID: 0}
     - target: {fileID: 6740509755218936727, guid: 3629e3a174f81f141b52f2815581f854, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
