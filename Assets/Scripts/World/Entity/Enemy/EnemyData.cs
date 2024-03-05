@@ -1,4 +1,5 @@
 using App.World.Items;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace App.World.Entity.Enemy
@@ -19,5 +20,11 @@ namespace App.World.Entity.Enemy
         public int maxMoneyDrop;
         public HealingDropItem healingPrefab;
         public MoneyDropItem moneyPrefab;
+        public int firstSpawningWave;
+        public int dangerLevel;
+        public List<AudioClip> gruntSounds;
+        public List<AudioClip> attackSounds;
+        public float minTimeBetweenGrunts;
+        public float maxTimeBetweenGrunts;
     }
 }

@@ -12,6 +12,8 @@ namespace App.World.Entity.Enemy
         private Rigidbody2D rigidBody;
         private Animator animator;
         private Health health;
+        private AudioSource audioSource;
+        private IWaveSystem waveSystem;
 
         protected ObjectPool objectPool;
         protected StateMachine stateMachine;
@@ -36,11 +38,14 @@ namespace App.World.Entity.Enemy
 
         public string PoolObjectType => enemyData.type;
 
+        public AudioSource AudioSource => audioSource;
+
         public virtual void Awake()
         {
             rigidBody = GetComponent<Rigidbody2D>();
             animator = GetComponent<Animator>();
             health = GetComponent<Health>();
+            audioSource = GetComponent<AudioSource>();
 
             stateMachine = new StateMachine();
             spawningState = new SpawningState(this, stateMachine);
@@ -49,9 +54,9 @@ namespace App.World.Entity.Enemy
             
         }
 
-        public virtual void Init(Vector3 position, Transform target)
+        public virtual void Init(Vector3 position, Transform target, IWaveSystem waveSystem, float hpMultiplier)
         {
-
+            this.waveSystem = waveSystem;
             this.target = target;
             transform.position = position;
             health.MaxHealth = enemyData.maxHealth;
@@ -60,8 +65,27 @@ namespace App.World.Entity.Enemy
                 stateMachine.Initialize(spawningState);
             else
                 stateMachine.ChangeState(spawningState);
+
+            if (enemyData.gruntSounds.Count > 0)
+                StartCoroutine(Grunt());
         }
-        
+
+        private IEnumerator Grunt()
+        {
+            float time = Random.Range(0, enemyData.maxTimeBetweenGrunts);
+            yield return new WaitForSeconds(time);
+            int index = Random.Range(0, enemyData.gruntSounds.Count);
+            audioSource.PlayOneShot(enemyData.gruntSounds[index]);
+            while (true)
+            {
+                time = Random.Range(enemyData.minTimeBetweenGrunts, enemyData.maxTimeBetweenGrunts);
+                yield return new WaitForSeconds(time);
+                index = Random.Range(0, enemyData.gruntSounds.Count);
+                audioSource.PlayOneShot(enemyData.gruntSounds[index]);
+            }
+
+        }
+
         void Update()
         {
             stateMachine.CurrentState.Update();
@@ -103,7 +127,7 @@ namespace App.World.Entity.Enemy
 
         public void DyingSequence()
         {
-            //waveSystem.ReportKilled(EnemyData.type);
+            waveSystem.ReportKilled(EnemyData.type);
             objectPool.ReturnToPool(this);
         }
 

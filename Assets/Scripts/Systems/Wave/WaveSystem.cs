@@ -6,29 +6,102 @@ using UnityEngine;
 
 public class WaveSystem : MonoBehaviour, IWaveSystem
 {
+    private int waveNum = 1;
     private EnemySpawningSystem enemySpawningSystem;
+    //private GameStatesSystem gameStatesSystem;
+    private int enemiesAlive = 0;
+    private int dangerLevelLeft;
+    private List<BaseEnemy> allowedEnemies = new List<BaseEnemy>();
+    private Dictionary<BaseEnemy, float> enemyWeights;
+    private float currentTotalEnemyWeight;
 
+    [SerializeField] private int totalDangerLevel = 300;
+    [SerializeField] private float enemyHpIncrease;
+    [SerializeField] private float minTimeBetweenSubwaves;
+    [SerializeField] private float maxTimeBetweenSubwaves;
+    [SerializeField] private float subWaveDangerPercentage;
+    [SerializeField] private float nextWaveDangerLevelMultiplier;
     [SerializeField] private List<BaseEnemy> enemies;
 
-    public void Init(EnemySpawningSystem enemySpawningSystem)
+    public void Init(EnemySpawningSystem enemySpawningSystem /*, GameStatesSystem gameStatesSystem*/)
     {
         this.enemySpawningSystem = enemySpawningSystem;
+        //this.gameStatesSystem = gameStatesSystem;
+        CalculateEnemyWeights();
+    }
+
+    public void StartWave()
+    {
+        allowedEnemies = enemies.FindAll(e => e.EnemyData.firstSpawningWave <= waveNum);
+        currentTotalEnemyWeight = 0;
+        foreach (BaseEnemy enemy in allowedEnemies)
+        {
+            currentTotalEnemyWeight += enemyWeights[enemy];
+        }
         StartCoroutine(Wave());
     }
 
-    //TEMPORARY
+    private void CalculateEnemyWeights()
+    {
+        enemyWeights = new Dictionary<BaseEnemy, float>();
+        foreach (BaseEnemy enemy in enemies)
+        {
+            enemyWeights.Add(enemy, 1.0f / enemy.EnemyData.dangerLevel);
+        }
+    }
+
     private IEnumerator Wave()
     {
-        while(true)
+        dangerLevelLeft = totalDangerLevel;
+        while (dangerLevelLeft > 0)
         {
-            enemySpawningSystem.SpawnEnemy(enemies[0].gameObject, 1);
-            yield return new WaitForSeconds(3f);
+            SpawnSubWave();
+            yield return new WaitForSeconds(Random.Range(minTimeBetweenSubwaves, maxTimeBetweenSubwaves));
         }
-        
+    }
+
+    private void SpawnSubWave()
+    {
+        int dangerDiff = (int)(totalDangerLevel * subWaveDangerPercentage);
+        int startingDangerLevel = dangerLevelLeft;
+        while (dangerLevelLeft > startingDangerLevel - dangerDiff)
+        {
+            BaseEnemy randomEnemy = getRandomEnemy();
+            enemySpawningSystem.SpawnEnemy(randomEnemy.gameObject, 1 + waveNum * enemyHpIncrease);
+            dangerLevelLeft -= randomEnemy.EnemyData.dangerLevel;
+            enemiesAlive++;
+        }
+    }
+
+    private BaseEnemy getRandomEnemy()
+    {
+        float randomWeight = Random.value * currentTotalEnemyWeight;
+        foreach (BaseEnemy enemy in allowedEnemies)
+        {
+            if (enemyWeights[enemy] >= randomWeight)
+                return enemy;
+            randomWeight -= enemyWeights[enemy];
+        }
+        return allowedEnemies[allowedEnemies.Count - 1];
+    }
+
+    private void CalculateNextDangerLevel()
+    {
+        totalDangerLevel = (int)(totalDangerLevel * nextWaveDangerLevelMultiplier);
+    }
+
+    private void EndWave()
+    {
+        Debug.Log("Wave ended");
+        waveNum++;
+        CalculateNextDangerLevel();
+        //gameStatesSystem.RestingState();
     }
 
     public void ReportKilled(string enemyType)
     {
-        //TODO: implement later
+        enemiesAlive--;
+        if (dangerLevelLeft <= 0 && enemiesAlive <= 0)
+            EndWave();
     }
 }
