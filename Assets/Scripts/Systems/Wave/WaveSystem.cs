@@ -93,7 +93,7 @@ public class WaveSystem : MonoBehaviour, IWaveSystem
 
     private void EndWave()
     {
-        Debug.Log("Wave ended");
+        //Debug.Log("Wave ended");
         waveNum++;
         CalculateNextDangerLevel();
         gameStatesSystem.RestingState();

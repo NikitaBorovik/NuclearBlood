@@ -10,7 +10,8 @@ namespace App.World.Entity.Enemy.States
 
         public override void Enter()
         {
-            
+            baseEnemy.Animator.SetBool("MovingRight", false);
+            baseEnemy.Animator.SetBool("MovingLeft", true);
         }
 
         public override void Exit()
