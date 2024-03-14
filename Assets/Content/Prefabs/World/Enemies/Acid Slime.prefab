@@ -151,102 +151,6 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: 0.27}
   m_Size: {x: 1.05, y: 0.7}
   m_Direction: 1
---- !u!1 &6703531106627335314
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2320838327228936498}
-  - component: {fileID: 5772166871037588962}
-  - component: {fileID: 5326374757994657374}
-  m_Layer: 13
-  m_Name: Attack
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!4 &2320838327228936498
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6703531106627335314}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 4725126995240303753}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &5772166871037588962
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6703531106627335314}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b08f4d2b8e5192e41b06d94bb82078c0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  audioSource: {fileID: 0}
-  hitSounds: []
---- !u!60 &5326374757994657374
-PolygonCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6703531106627335314}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  m_Points:
-    m_Paths:
-    - - {x: 1.4889407, y: 0.7132609}
-      - {x: 1.2116475, y: 1.399961}
-      - {x: 0.07237381, y: 0.66192377}
-      - {x: 1.2448635, y: -0.0679127}
-  m_UseDelaunayMesh: 0
 --- !u!1 &8603264477695733083
 GameObject:
   m_ObjectHideFlags: 0
@@ -258,12 +162,12 @@ GameObject:
   - component: {fileID: 4725126995240303753}
   - component: {fileID: 8477867996692970332}
   - component: {fileID: 2480486583346923991}
-  - component: {fileID: 607271547250327435}
   - component: {fileID: 5647351933759553556}
   - component: {fileID: 5912494820620912098}
   - component: {fileID: 5991100102537459408}
+  - component: {fileID: 145106587741834119}
   m_Layer: 6
-  m_Name: Basic Zombie
+  m_Name: Acid Slime
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -283,7 +187,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2194383839049610537}
-  - {fileID: 2320838327228936498}
   - {fileID: 8786001992817048483}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -328,7 +231,7 @@ SpriteRenderer:
   m_SortingLayerID: 289661383
   m_SortingLayer: 1
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 87935ad29962ba544b2e0482047b93a2, type: 3}
+  m_Sprite: {fileID: 21300000, guid: f473b2bf9403cc948974543bc6265d88, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -366,23 +269,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!114 &607271547250327435
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8603264477695733083}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b62c62a3d2c8140449272517d7ff0b66, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  enemyData: {fileID: 11400000, guid: ba8e5f9084f8c204aa8f565f5ecf4126, type: 2}
-  myColliders:
-  - {fileID: 5912494820620912098}
-  - {fileID: 6541208221142147543}
-  attack: {fileID: 5772166871037588962}
 --- !u!95 &5647351933759553556
 Animator:
   serializedVersion: 5
@@ -393,7 +279,7 @@ Animator:
   m_GameObject: {fileID: 8603264477695733083}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 38e1af12f7f1c0f469959e28c223f930, type: 2}
+  m_Controller: {fileID: 9100000, guid: 6dcbbd1d24bb1424c8c491921f9bc4d5, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -436,8 +322,8 @@ CapsuleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.019153476, y: 0.8066667}
-  m_Size: {x: 0.87, y: 1.8333334}
+  m_Offset: {x: 0.019153476, y: 0.61}
+  m_Size: {x: 1.05, y: 1.44}
   m_Direction: 0
 --- !u!114 &5991100102537459408
 MonoBehaviour:
@@ -453,3 +339,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   blinkTime: 0.125
   healthUpdateEvent: {fileID: 0}
+--- !u!114 &145106587741834119
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8603264477695733083}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5bfeea9a1b7ff904594bf50e2b7510dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyData: {fileID: 11400000, guid: 49d063b944ccd0749a277413f64bcba5, type: 2}
+  myColliders:
+  - {fileID: 5912494820620912098}
+  - {fileID: 6541208221142147543}
+  projectile: {fileID: 6902206058834535362, guid: ee2e35791dbd70548bd1e705a32ccbc9, type: 3}
