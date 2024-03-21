@@ -12,12 +12,15 @@ namespace App.Upgrades
         [SerializeField] private string upgradeName;
         [SerializeField] private string description;
         [SerializeField] private Sprite image;
+        [SerializeField] private int cost;
 
         public Sprite Image => image;
 
         public string Name => upgradeName;
 
         public string Description => description;
+
+        public int Cost => cost;
 
         public abstract bool IsComplete { get; }
 
