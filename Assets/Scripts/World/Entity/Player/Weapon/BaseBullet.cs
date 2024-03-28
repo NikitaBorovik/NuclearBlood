@@ -7,6 +7,8 @@ namespace App.World.Entity.Player.Weapons
     {
         protected float damage;
         protected float pearcingCount;
+        protected float accuracy;
+        private const float DefaultAccuracy = 0.5f;
         protected ObjectPool objectPool;
         [SerializeField]
         protected string poolObjectType;
@@ -37,10 +39,11 @@ namespace App.World.Entity.Player.Weapons
             }
 
         }
-        public virtual void Init(float damage, int pearcingCount)
+        public virtual void Init(float damage, int pearcingCount, float accuracy)
         {
             this.damage = damage;
             this.pearcingCount = pearcingCount;
+            this.accuracy = accuracy;
             GetComponent<TimeToLive>().Init();
         }
 

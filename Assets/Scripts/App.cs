@@ -8,6 +8,7 @@ using App.Systems.EnemySpawning;
 using App.World.Entity;
 using App.Systems.GameStates;
 using App.World.Gates;
+using App.World.Shop;
 
 namespace App
 {
@@ -31,7 +32,7 @@ namespace App
 
         private void Start()
         {
-            inputSystem.Init(mainCamera, objectsContainer.Player.GetComponent<Player>(), objectsContainer.Pauser);
+            inputSystem.Init(mainCamera, objectsContainer.Player.GetComponent<Player>(), objectsContainer.Shop.GetComponent<Shop>(), objectsContainer.Pauser);
             enemySpawningSystem.Init(waveSystem, objectPool, objectsContainer.Player.transform);
             waveSystem.Init(enemySpawningSystem, gameStatesSystem);
             gameStatesSystem.Init(waveSystem, objectsContainer.Gates.GetComponent<Gates>(), objectsContainer.GlobalLight);

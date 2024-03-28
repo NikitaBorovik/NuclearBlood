@@ -22,7 +22,7 @@ namespace App.Upgrades.ConcreteUpgrades.StandardStrategy.PlayerUpgrades
 
         public void Initialize(Player player)
         {
-            initialBulletSpread = player.Weapon.BulletFlySpeed;
+            initialBulletSpread = player.Weapon.BulletSpread;
         }
 
         public void Destroy()
@@ -32,14 +32,14 @@ namespace App.Upgrades.ConcreteUpgrades.StandardStrategy.PlayerUpgrades
 
         public void Reset(Player player)
         {
-            player.Weapon.BulletFlySpeed = initialBulletSpread
+            player.Weapon.BulletSpread = initialBulletSpread
                 ?? throw new InvalidOperationException("Cannot reset via a non-initialized strategy");
         }
 
         public void SwitchToLevel(Player player, AccuracyUpgradeLevel level)
         {
             Reset(player);
-            player.Weapon.BulletFlySpeed *= (1 - level.accuracy);
+            player.Weapon.BulletSpread *= (1 - level.accuracy);
         }
     }
 }

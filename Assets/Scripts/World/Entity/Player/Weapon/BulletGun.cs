@@ -22,7 +22,8 @@ namespace App.World.Entity.Player.Weapons
                     GameObject bullet = objectPool.GetObjectFromPool(bulletScript.PoolObjectType, bulletPrefab, ShootPosition.position).GetGameObject();
                     bullet.transform.rotation = rotation;
                     bullet.transform.position = ShootPosition.position;
-                    bullet.GetComponent<BaseBullet>().Init(damage,PearcingCount);
+                    bullet.GetComponent<BaseBullet>().Init(damage, PearcingCount, accuracy);
+
                     bullet.GetComponent<Rigidbody2D>().velocity = bullet.transform.right * bulletFlySpeed;
                 }
                 audioSource.PlayOneShot(shootSound);

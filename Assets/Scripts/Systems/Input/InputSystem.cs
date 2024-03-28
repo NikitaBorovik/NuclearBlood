@@ -1,4 +1,5 @@
 using App.World.Entity.Player.PlayerComponents;
+using App.World.Shop;
 using App.World.UI;
 using UnityEngine;
 
@@ -10,6 +11,7 @@ namespace App.Systems.Input
         private Camera mainCamera;
         private Player player;
         private Pauser pauser;
+        private Shop shop;
 
         private void Update()
         {
@@ -17,11 +19,14 @@ namespace App.Systems.Input
             HandleAimInput();
             HandleMoveInput();
             HandleShootInput();
+            HandleBuyInput();
         }
-        public void Init(Camera mainCamera, Player player, Pauser pauser)
+
+        public void Init(Camera mainCamera, Player player, Shop shop, Pauser pauser)
         {
             this.mainCamera = mainCamera;
             this.player = player;
+            this.shop = shop;
             this.pauser = pauser;
         }
 
@@ -32,6 +37,7 @@ namespace App.Systems.Input
             mouseOnScreenPos.z = 0f;
             return mouseOnScreenPos;
         }
+
         private float GetDirectionAngle()
         {
             Vector3 lookDirection;
@@ -47,6 +53,7 @@ namespace App.Systems.Input
             float direction = rads * Mathf.Rad2Deg;
             return direction;
         }
+
         private bool HandlePauseInput()
         {
             if (!UnityEngine.Input.GetKeyDown(KeyCode.Escape)) return pauser.IsPaused;
@@ -58,6 +65,7 @@ namespace App.Systems.Input
 
             return pauser.IsPaused;
         }
+
         private void HandleAimInput()
         {
             float aimAngle = GetDirectionAngle();
@@ -65,6 +73,7 @@ namespace App.Systems.Input
             float playerPosInScreen = mainCamera.WorldToScreenPoint(player.PlayerTransform.position).x;
             player.AimEvent.CallAimEvent(aimAngle, playerPosInScreen, cursorPos);
         }
+
         private void HandleMoveInput()
         {
             float horizontalMove = UnityEngine.Input.GetAxis("Horizontal");
@@ -84,11 +93,20 @@ namespace App.Systems.Input
                 player.MovementEvent.CallMovementEvent(movingDirection, player.MovementSpeed);
             }
         }
+
         private void HandleShootInput()
         {
             if (UnityEngine.Input.GetMouseButton(0))
             {
                 player.Weapon.ShootEvent.CallShootEvent();
+            }
+        }
+
+        private void HandleBuyInput()
+        {
+            if (UnityEngine.Input.GetKeyDown(KeyCode.E))
+            {
+                shop.SellEvent.CallSellEvent();
             }
         }
     }
