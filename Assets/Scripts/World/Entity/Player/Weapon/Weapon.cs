@@ -30,6 +30,8 @@ namespace App.World.Entity.Player.Weapons
         protected GameObject bulletPrefab;
         #endregion
 
+        protected float accuracy = 0f; //for accuracy upgrade
+
         protected virtual void Awake()
         {
             damage = Data.damage;
@@ -48,9 +50,15 @@ namespace App.World.Entity.Player.Weapons
         public float Cooldown { get => coolDown; set => coolDown = value; }
         public float Damage { get => damage; set => damage = value; }
         public float BulletFlySpeed { get => bulletFlySpeed; set => bulletFlySpeed = value; }
+        public float BulletSpread { get => bulletSpread; set => bulletSpread = value; }
         public Transform ShootPosition { get => shootPosition; set => shootPosition = value; }
         public WeaponSO Data { get => data; set => data = value; }
         public int PearcingCount { get => pearcingCount; set => pearcingCount = value; }
+        public float Accuracy
+        {
+            get => accuracy;
+            set => accuracy = Mathf.Clamp01(value);
+        }
 
         private void OnEnable()
         {
