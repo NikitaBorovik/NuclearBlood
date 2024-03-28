@@ -14,7 +14,7 @@ namespace App.World.Entity.Player.PlayerComponents
     [RequireComponent(typeof(Aim))]
     [RequireComponent(typeof(Stand))]
     #endregion
-    public class Player : MonoBehaviour, IUpgradable
+    public class Player : MonoBehaviour, IUpgradable, IKillable
     {
         #region Components
         private Transform playerTransform;
@@ -45,11 +45,14 @@ namespace App.World.Entity.Player.PlayerComponents
         private MovementEvent movementEvent;
         [SerializeField]
         private CountUpdatedEvent countUpdatedEvent;
+        [SerializeField]
+        private DieEvent dieEvent;
         #endregion
 
         #region Parameters
         private float movementSpeed;
         private int money;
+        private bool isDead;
         #endregion
 
         #region Properties
@@ -82,7 +85,17 @@ namespace App.World.Entity.Player.PlayerComponents
             health.MaxHealth = playerData.maxHealth;
             movementSpeed = playerData.speed;
         }
-        
+
+        public void Die()
+        {
+            Weapon.enabled = false;
+            GetComponent<Movement>().enabled = false;
+            GetComponent<Aim>().enabled = false;
+            GetComponent<PlayerAnimationsController>().enabled = false;
+            if (isDead) return;
+            dieEvent.CallDieEvent();
+        }
+
         public void EnableUpgrade(IUpgradeAbstractVisitor upgrade)
         {
             IUpgradable.EnableUpgradeViaVisitorOf(this, upgrade);
