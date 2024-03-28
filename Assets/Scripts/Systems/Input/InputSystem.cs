@@ -1,4 +1,5 @@
 using App.World.Entity.Player.PlayerComponents;
+using App.World.UI;
 using UnityEngine;
 
 namespace App.Systems.Input
@@ -8,17 +9,20 @@ namespace App.Systems.Input
 
         private Camera mainCamera;
         private Player player;
+        private Pauser pauser;
 
         private void Update()
         {
+            if (HandlePauseInput()) return;
             HandleAimInput();
             HandleMoveInput();
             HandleShootInput();
         }
-        public void Init(Camera mainCamera, Player player)
+        public void Init(Camera mainCamera, Player player, Pauser pauser)
         {
             this.mainCamera = mainCamera;
             this.player = player;
+            this.pauser = pauser;
         }
 
         private Vector3 GetMousePositionInWorld()
@@ -42,6 +46,17 @@ namespace App.Systems.Input
             float rads = Mathf.Atan2(lookDirection.y, lookDirection.x);
             float direction = rads * Mathf.Rad2Deg;
             return direction;
+        }
+        private bool HandlePauseInput()
+        {
+            if (!UnityEngine.Input.GetKeyDown(KeyCode.Escape)) return pauser.IsPaused;
+
+            if (pauser.IsPaused)
+                pauser.Unpause();
+            else
+                pauser.Pause();
+
+            return pauser.IsPaused;
         }
         private void HandleAimInput()
         {
