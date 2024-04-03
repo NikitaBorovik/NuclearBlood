@@ -26,7 +26,7 @@ namespace App.World.Shop
                 return;
             currentIndex = Random.Range(0, upgrades.Count);
             currentUpgrade = upgrades[currentIndex.Value];
-            spriteRenderer.sprite = currentUpgrade.Image;
+            //spriteRenderer.sprite = currentUpgrade.Image;
         }
 
         public void RemoveUpgradeAt(int index)

@@ -1,7 +1,7 @@
 using TMPro;
 using UnityEngine;
 
-namespace App.World.UI
+namespace App.UI
 {
     public class LoadingAnimation : MonoBehaviour
     {
