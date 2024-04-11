@@ -1,3 +1,4 @@
+using App.Upgrades.ConcreteUpgrades.StandardStrategy.PlayerUpgrades;
 using UnityEngine;
 namespace App.World.Entity.Player.Weapons
 {
@@ -28,8 +29,9 @@ namespace App.World.Entity.Player.Weapons
         protected float coolDown;
         private int pearcingCount;
         protected GameObject bulletPrefab;
-        #endregion
 
+        #endregion
+        protected LifeStealInfo lifeStealAmount = null;// for vamp upgrade
         protected float accuracy = 0f; //for accuracy upgrade
 
         protected virtual void Awake()
@@ -54,6 +56,25 @@ namespace App.World.Entity.Player.Weapons
         public Transform ShootPosition { get => shootPosition; set => shootPosition = value; }
         public WeaponSO Data { get => data; set => data = value; }
         public int PearcingCount { get => pearcingCount; set => pearcingCount = value; }
+
+        public LifeStealInfo LifeStealAmount
+        {
+            get => lifeStealAmount;
+            set
+            {
+                if (value == null)
+                {
+                    lifeStealAmount = null;
+                    return;
+                }
+
+                lifeStealAmount = new LifeStealInfo
+                {
+                    lifeStealAmount = Mathf.Clamp01(value.lifeStealAmount),
+                    player = value.player
+                };
+            }
+        }
         public float Accuracy
         {
             get => accuracy;

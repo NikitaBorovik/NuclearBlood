@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   upgradeName: PlayerSpeedUpgrade
   description: Increases your speed.
-  image: {fileID: 0}
+  image: {fileID: 21300000, guid: 01a00c9e1bc5e824e86bef84a3daf1b8, type: 3}
   cost: 0
   levels:
   - speedMultiplier: 1.54

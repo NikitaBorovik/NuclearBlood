@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   upgradeName: PiercingBullets
   description: Increases Piercing count of your bullets.
-  image: {fileID: 0}
+  image: {fileID: 21300000, guid: a3977120025ce53479818d3f07bc2cd7, type: 3}
   cost: 0
   levels:
   - piercingCountIncrease: 2

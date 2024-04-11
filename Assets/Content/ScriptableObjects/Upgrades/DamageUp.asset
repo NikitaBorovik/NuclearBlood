@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   upgradeName: Damage Up
   description: Increases your damage
-  image: {fileID: 21300000, guid: 1450469c4242a0a4e94662325e3b376b, type: 3}
+  image: {fileID: 21300000, guid: 13e37f274f8e8774b9fd03136481fa43, type: 3}
   cost: 0
   levels:
   - damageIncrease: 10

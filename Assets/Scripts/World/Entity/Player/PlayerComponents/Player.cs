@@ -53,6 +53,7 @@ namespace App.World.Entity.Player.PlayerComponents
         private float movementSpeed;
         private int money;
         private bool isDead;
+        private float dodgeChance = 0f;
         #endregion
 
         #region Properties
@@ -70,6 +71,12 @@ namespace App.World.Entity.Player.PlayerComponents
         public Weapon Weapon {get => weapon; set => weapon = value;}
         public int Money { get => money; set { money = value; countUpdatedEvent?.CallCountUpdatedEvent(value); } }
         public Health Health { get => health; set => health = value; }
+
+        public float DodgeChance
+        {
+            get => dodgeChance;
+            set => dodgeChance = Mathf.Clamp01(value); // for dexterity upgarde
+        }
         #endregion
 
         private void Awake()
