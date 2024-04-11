@@ -10,7 +10,6 @@ namespace App.World.Entity.Player.Weapons
     {
         protected float damage;
         protected float accuracy;
-        private const float DefaultAccuracy = 0.5f;
         protected LifeStealInfo lifeStealAmount;
         protected float pearcingCount;
         protected ObjectPool objectPool;
@@ -67,7 +66,7 @@ namespace App.World.Entity.Player.Weapons
 
 
         }
-        public virtual void Init(float damage, int pearcingCount, float accuracy/* ,LifeStealInfo lifeStealAmount, SlowEffectInfo slowEffect*/)
+        public virtual void Init(float damage, int pearcingCount, float accuracy, LifeStealInfo lifeStealAmount/*, SlowEffectInfo slowEffect*/)
         {
             this.damage = damage;
             this.pearcingCount = pearcingCount;

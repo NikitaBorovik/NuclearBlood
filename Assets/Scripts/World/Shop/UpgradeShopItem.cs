@@ -37,11 +37,10 @@ namespace App.World.Shop
                 {
                     currentUpgrade = null;
                     currentIndex = null;
-                    Debug.Log("Nulled!!!!!!!");
+                    spriteRenderer.sprite = null;
                 }
 
                 upgrades.RemoveAt(index);
-                Debug.Log($"Removed, size = {upgrades.Count}");
                 SetRandomUpgrade();
             }
             else
@@ -107,18 +106,15 @@ namespace App.World.Shop
 
             if (addedUpgrade == null)
             {
-                Debug.Log("Here1");
                 upgradeManager.AddUpgrade(upgrade);
             }
             else if (addedUpgrade.IsComplete)
             {
-                Debug.Log("Here2");
                 RemoveUpgradeAt(currentIndex.Value);
                 return;
             }
             else
             {
-                Debug.Log("Here3");
                 upgradeManager.LevelUpUpgrade(upgrade);
             }
 

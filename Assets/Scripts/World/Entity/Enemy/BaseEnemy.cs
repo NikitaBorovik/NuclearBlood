@@ -117,11 +117,10 @@ namespace App.World.Entity.Enemy
         }
         private void DropHealing()
         {
-            if (Random.value <= enemyData.healingDropChance)
+            if (DropChanceManager.ShouldDropHealing(enemyData.healingDropChance))
             {
                 GameObject healing = objectPool.GetObjectFromPool(enemyData.healingPrefab.PoolObjectType, enemyData.healingPrefab.gameObject, transform.position).GetGameObject();
                 healing.GetComponent<HealingDropItem>().Init(transform.position);
-
             }
         }
 

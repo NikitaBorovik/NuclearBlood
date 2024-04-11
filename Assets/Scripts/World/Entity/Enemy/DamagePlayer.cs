@@ -3,7 +3,6 @@ using App.World.Entity.Player.PlayerComponents;
 using System.Collections.Generic;
 using UnityEngine;
 
-
 public class DamagePlayer : MonoBehaviour
 {
     private float damage;
@@ -21,8 +20,12 @@ public class DamagePlayer : MonoBehaviour
         Health collisionHealth = collision.GetComponent<Health>();
         if (collisionHealth != null && player != null)
         {
-            collisionHealth.TakeDamage(damage);
-            PlayHitSound();
+            // Check if the player dodges the attack
+            if (Random.value > player.DodgeChance)
+            {
+                collisionHealth.TakeDamage(damage);
+                PlayHitSound();
+            }
         }
 
     }

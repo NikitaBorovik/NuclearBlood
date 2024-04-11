@@ -31,7 +31,8 @@ namespace App.Upgrades.ConcreteUpgrades.StandardStrategy.PlayerUpgrades
 
         public void Reset(Player player)
         {
-            player.DodgeChance = initialDodgeChance ?? throw new System.InvalidOperationException("Cannot reset via a non-initialized strategy");
+            player.DodgeChance = initialDodgeChance 
+                ?? throw new System.InvalidOperationException("Cannot reset via a non-initialized strategy");
         }
 
         public void SwitchToLevel(Player player, DexterityUpgradeLevel level)
