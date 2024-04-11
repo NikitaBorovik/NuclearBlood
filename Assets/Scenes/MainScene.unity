@@ -1033,7 +1033,7 @@ PrefabInstance:
     - target: {fileID: 2440757152379283755, guid: 3dd697c169d16b841a087177cdc0c750, type: 3}
       propertyPath: upgrades.Array.data[0]
       value: 
-      objectReference: {fileID: 11400000, guid: 00c5fe12b39789a4c92321492355d578, type: 2}
+      objectReference: {fileID: 11400000, guid: f28c01d1b02c5d04bba2b150d8c2254c, type: 2}
     - target: {fileID: 3910096738526662793, guid: 3dd697c169d16b841a087177cdc0c750, type: 3}
       propertyPath: container
       value: 
@@ -1081,7 +1081,7 @@ PrefabInstance:
     - target: {fileID: 7612240913229610742, guid: 3dd697c169d16b841a087177cdc0c750, type: 3}
       propertyPath: upgrades.Array.data[0]
       value: 
-      objectReference: {fileID: 11400000, guid: e3736cd23fdfbc94286075279bdc689b, type: 2}
+      objectReference: {fileID: 11400000, guid: fe2290c906fd33344ac2d3f9e7cf8772, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

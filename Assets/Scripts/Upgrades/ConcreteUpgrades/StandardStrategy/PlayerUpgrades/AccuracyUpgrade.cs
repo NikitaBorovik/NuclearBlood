@@ -39,7 +39,7 @@ namespace App.Upgrades.ConcreteUpgrades.StandardStrategy.PlayerUpgrades
         public void SwitchToLevel(Player player, AccuracyUpgradeLevel level)
         {
             Reset(player);
-            player.Weapon.BulletSpread *= (1 - level.accuracy);
+            player.Weapon.BulletSpread *= 1 - level.accuracy;
         }
     }
 }
