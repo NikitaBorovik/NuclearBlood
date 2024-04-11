@@ -1101,7 +1101,7 @@ PrefabInstance:
     - target: {fileID: 7612240913229610742, guid: 3dd697c169d16b841a087177cdc0c750, type: 3}
       propertyPath: upgrades.Array.data[0]
       value: 
-      objectReference: {fileID: 11400000, guid: aeed40e4d0a5b1f4a8c6b336f494e7ec, type: 2}
+      objectReference: {fileID: 11400000, guid: e784da415e8f5fb448f22a4bac8aa7f3, type: 2}
     - target: {fileID: 7750398876985586541, guid: 3dd697c169d16b841a087177cdc0c750, type: 3}
       propertyPath: m_SortingLayer
       value: 0

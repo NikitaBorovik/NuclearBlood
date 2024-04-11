@@ -20,18 +20,6 @@ MonoBehaviour:
   - damage: 1
     hitNumber: 10
     hitPeriod: 0.51
-    appearancePeriod: 6.7
+    appearancePeriod: 4.8
     existanceDuration: 14.7
-    poisonPoolPrefab: {fileID: 0}
-  - damage: 0
-    hitNumber: 0
-    hitPeriod: 0
-    appearancePeriod: 0
-    existanceDuration: 0
-    poisonPoolPrefab: {fileID: 0}
-  - damage: 0
-    hitNumber: 0
-    hitPeriod: 0
-    appearancePeriod: 0
-    existanceDuration: 0
-    poisonPoolPrefab: {fileID: 0}
+    poisonPoolPrefab: {fileID: 2258975573831735821, guid: 8c01e362ff0c9ac4c9f740daae0a02bb, type: 3}
