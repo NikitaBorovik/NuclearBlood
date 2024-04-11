@@ -27,7 +27,10 @@ MonoBehaviour:
   moneyPrefab: {fileID: 1915607931808861024, guid: 20e5ffa1fcba25a4ca5b6ed0f57c0ef1, type: 3}
   firstSpawningWave: 1
   dangerLevel: 3
-  gruntSounds: []
-  attackSounds: []
+  gruntSounds:
+  - {fileID: 8300000, guid: 92748c2c73e42224792635061bc67637, type: 3}
+  - {fileID: 8300000, guid: 9716aaa2488c034468b34c82e0dc0b0a, type: 3}
+  attackSounds:
+  - {fileID: 8300000, guid: 541739147132dd746b4a7ec49416c76f, type: 3}
   minTimeBetweenGrunts: 10
   maxTimeBetweenGrunts: 15

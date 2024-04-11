@@ -79,6 +79,12 @@ namespace App.World.Entity.Player.PlayerComponents
         }
         #endregion
 
+        #region Sounds
+        [SerializeField]
+        private AudioClip[] stepSounds;
+        private AudioSource audioSource;
+        #endregion
+
         private void Awake()
         {
             Init();
@@ -91,6 +97,7 @@ namespace App.World.Entity.Player.PlayerComponents
             health = GetComponent<Health>();
             health.MaxHealth = playerData.maxHealth;
             movementSpeed = playerData.speed;
+            audioSource = GetComponent<AudioSource>();
         }
 
         public void Die()
@@ -106,6 +113,14 @@ namespace App.World.Entity.Player.PlayerComponents
         public void EnableUpgrade(IUpgradeAbstractVisitor upgrade)
         {
             IUpgradable.EnableUpgradeViaVisitorOf(this, upgrade);
+        }
+
+        public void MakeStepSound()
+        {
+            if (!audioSource.isPlaying)
+            {
+                audioSource.PlayOneShot(stepSounds[Random.Range(0, stepSounds.Length)]);
+            }
         }
     }
 }
