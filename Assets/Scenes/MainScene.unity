@@ -1049,7 +1049,7 @@ PrefabInstance:
     - target: {fileID: 3910096738526662793, guid: 3dd697c169d16b841a087177cdc0c750, type: 3}
       propertyPath: upgrades.Array.data[0]
       value: 
-      objectReference: {fileID: 11400000, guid: 1f2a73b3c9257334f9396a7483c6ad39, type: 2}
+      objectReference: {fileID: 11400000, guid: 866eb53ab553f7942b746b4deb602fbc, type: 2}
     - target: {fileID: 7223198510936701478, guid: 3dd697c169d16b841a087177cdc0c750, type: 3}
       propertyPath: container
       value: 
@@ -1065,7 +1065,7 @@ PrefabInstance:
     - target: {fileID: 7223198510936701478, guid: 3dd697c169d16b841a087177cdc0c750, type: 3}
       propertyPath: upgrades.Array.data[0]
       value: 
-      objectReference: {fileID: 11400000, guid: be01dd9b3a1eaf14a9025aa18907ecb3, type: 2}
+      objectReference: {fileID: 11400000, guid: cf3f93a7ce13be34a8926af5c91714e9, type: 2}
     - target: {fileID: 7612240913229610742, guid: 3dd697c169d16b841a087177cdc0c750, type: 3}
       propertyPath: container
       value: 

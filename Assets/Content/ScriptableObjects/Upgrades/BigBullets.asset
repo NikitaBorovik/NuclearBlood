@@ -12,8 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d08b1835a9b72ee498fb6a203c8a3533, type: 3}
   m_Name: BigBullets
   m_EditorClassIdentifier: 
-  upgradeName: 
-  description: 
-  image: {fileID: 0}
+  upgradeName: Big Bullets
+  description: Increases your bullets' size
+  image: {fileID: 21300000, guid: 6a28a92de841bd347801534fb6ebd46a, type: 3}
   cost: 0
-  levels: []
+  levels:
+  - bulletScale: {x: 1.5, y: 1.5, z: 0}
