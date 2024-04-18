@@ -15,7 +15,7 @@ MonoBehaviour:
   upgradeName: Dodge
   description: Adds to a dodge chance
   image: {fileID: 21300000, guid: 58a27d2b38d4e1745bf560fb65fb543b, type: 3}
-  cost: 0
+  cost: 25
   levels:
   - dodgeChanceIncrease: 0.12
   - dodgeChanceIncrease: 0.24

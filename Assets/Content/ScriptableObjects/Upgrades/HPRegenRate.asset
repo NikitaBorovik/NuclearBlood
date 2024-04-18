@@ -15,7 +15,7 @@ MonoBehaviour:
   upgradeName: HP Regen Rate
   description: Increases your HP regeneration.
   image: {fileID: 21300000, guid: 68a064a3bceb78b4394e51576c9e645a, type: 3}
-  cost: 0
+  cost: 25
   levels:
   - hpRegenRateAddent: 0.5
     period: 1

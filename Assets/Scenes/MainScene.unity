@@ -1031,6 +1031,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: World
       objectReference: {fileID: 0}
+    - target: {fileID: 2104638961996803270, guid: 23f89c04db2ab634ba39e4d829ce43c1, type: 3}
+      propertyPath: m_Volume
+      value: 0.03
+      objectReference: {fileID: 0}
     - target: {fileID: 3663495290822941118, guid: 23f89c04db2ab634ba39e4d829ce43c1, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -1083,6 +1087,10 @@ PrefabInstance:
       propertyPath: shop
       value: 
       objectReference: {fileID: 1330259707}
+    - target: {fileID: 7728324563708891943, guid: 23f89c04db2ab634ba39e4d829ce43c1, type: 3}
+      propertyPath: countUpdatedEvent
+      value: 
+      objectReference: {fileID: 1009787400}
     - target: {fileID: 9144209745632455339, guid: 23f89c04db2ab634ba39e4d829ce43c1, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 

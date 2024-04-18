@@ -15,7 +15,7 @@ MonoBehaviour:
   upgradeName: BulletSpeedUp
   description: Icreases your bulets' fly speed
   image: {fileID: 21300000, guid: 97374dd4e87e416448bcf2e84766a311, type: 3}
-  cost: 0
+  cost: 15
   levels:
   - bulletFlySpeedMultiplier: 2
   - bulletFlySpeedMultiplier: 3

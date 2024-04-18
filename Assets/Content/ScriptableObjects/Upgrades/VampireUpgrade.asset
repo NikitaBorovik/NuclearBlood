@@ -15,7 +15,7 @@ MonoBehaviour:
   upgradeName: Vampirism
   description: Enables vampirism
   image: {fileID: 21300000, guid: 080bbd7a406ccbb4fbad27482b5a95e6, type: 3}
-  cost: 0
+  cost: 20
   levels:
   - lifeStealPercentage: 0.01
   - lifeStealPercentage: 0.02

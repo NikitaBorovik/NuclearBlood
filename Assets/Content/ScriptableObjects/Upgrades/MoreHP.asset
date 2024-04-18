@@ -15,7 +15,7 @@ MonoBehaviour:
   upgradeName: 'More Hp '
   description: Increases Your Max HP
   image: {fileID: 21300000, guid: caf462df25ce1d4418888b9f204ae6d2, type: 3}
-  cost: 0
+  cost: 20
   levels:
   - maxHP: 125
   - maxHP: 150

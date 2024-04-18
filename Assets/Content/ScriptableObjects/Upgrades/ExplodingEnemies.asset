@@ -15,7 +15,7 @@ MonoBehaviour:
   upgradeName: Exploding Enemies
   description: Makes your enemies explode
   image: {fileID: 21300000, guid: 173d75de8bb8cd74184f7cdb5a3925ba, type: 3}
-  cost: 0
+  cost: 25
   levels:
   - explosionChance: 1
     timeToLive: 0.529

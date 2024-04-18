@@ -15,7 +15,7 @@ MonoBehaviour:
   upgradeName: Accuracy
   description: Increases your shooting accuracy.
   image: {fileID: 21300000, guid: ce9b1fd48d0def843a483e4db86c883d, type: 3}
-  cost: 0
+  cost: 15
   levels:
   - accuracy: 0.2
   - accuracy: 0.4

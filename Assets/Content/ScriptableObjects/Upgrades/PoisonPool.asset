@@ -15,7 +15,7 @@ MonoBehaviour:
   upgradeName: PoisonPool
   description: Spawns a Poison Pool periodically.
   image: {fileID: 21300000, guid: 024158a5bf2ab764e8aad9f4aac170a3, type: 3}
-  cost: 0
+  cost: 25
   levels:
   - damage: 5
     hitNumber: 5
