@@ -17,6 +17,13 @@ MonoBehaviour:
   image: {fileID: 21300000, guid: 13e37f274f8e8774b9fd03136481fa43, type: 3}
   cost: 0
   levels:
+  - damageIncrease: 5
   - damageIncrease: 10
+  - damageIncrease: 15
   - damageIncrease: 20
+  - damageIncrease: 25
   - damageIncrease: 30
+  - damageIncrease: 35
+  - damageIncrease: 40
+  - damageIncrease: 45
+  - damageIncrease: 50

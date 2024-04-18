@@ -17,9 +17,13 @@ MonoBehaviour:
   image: {fileID: 21300000, guid: 68a064a3bceb78b4394e51576c9e645a, type: 3}
   cost: 0
   levels:
-  - hpRegenRateAddent: 2
-    period: 2
-  - hpRegenRateAddent: 5
+  - hpRegenRateAddent: 0.5
     period: 1
-  - hpRegenRateAddent: 10
+  - hpRegenRateAddent: 1
+    period: 1
+  - hpRegenRateAddent: 1.5
+    period: 1
+  - hpRegenRateAddent: 2
+    period: 1
+  - hpRegenRateAddent: 2.5
     period: 1

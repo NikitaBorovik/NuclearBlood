@@ -67,12 +67,10 @@ namespace App.Upgrades
         {
             if (upgrade is IUpdatableUpgradeVisitor)
             {
-                Debug.Log("Updatable added");
                 updatableUpdates.Add(upgrade.GetType(), upgrade as IUpdatableUpgradeVisitor);
             }
             else
             {
-                Debug.Log("Non-Updatable added");
                 upgrades.Add(upgrade.GetType(), upgrade);
             }
 

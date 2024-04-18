@@ -17,6 +17,8 @@ MonoBehaviour:
   image: {fileID: 21300000, guid: 97374dd4e87e416448bcf2e84766a311, type: 3}
   cost: 0
   levels:
-  - bulletFlySpeedMultiplier: 2.22
-  - bulletFlySpeedMultiplier: 3.78
-  - bulletFlySpeedMultiplier: 5.46
+  - bulletFlySpeedMultiplier: 2
+  - bulletFlySpeedMultiplier: 3
+  - bulletFlySpeedMultiplier: 4
+  - bulletFlySpeedMultiplier: 5
+  - bulletFlySpeedMultiplier: 6

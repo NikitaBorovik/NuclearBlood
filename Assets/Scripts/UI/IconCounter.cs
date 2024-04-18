@@ -20,7 +20,6 @@ namespace App.UI
                     throw new System.ArgumentOutOfRangeException("Count cannot be less then 0");
                 count = value;
                 text.text = textPrefix + value.ToString();
-                Debug.Log($"Current Bones Count = {count}");
             }
         }
 

@@ -17,9 +17,21 @@ MonoBehaviour:
   image: {fileID: 21300000, guid: 024158a5bf2ab764e8aad9f4aac170a3, type: 3}
   cost: 0
   levels:
-  - damage: 1
-    hitNumber: 10
-    hitPeriod: 0.51
-    appearancePeriod: 4.8
-    existanceDuration: 14.7
+  - damage: 5
+    hitNumber: 5
+    hitPeriod: 2
+    appearancePeriod: 2
+    existanceDuration: 10
+    poisonPoolPrefab: {fileID: 2258975573831735821, guid: 8c01e362ff0c9ac4c9f740daae0a02bb, type: 3}
+  - damage: 7
+    hitNumber: 5
+    hitPeriod: 2
+    appearancePeriod: 2
+    existanceDuration: 10
+    poisonPoolPrefab: {fileID: 2258975573831735821, guid: 8c01e362ff0c9ac4c9f740daae0a02bb, type: 3}
+  - damage: 10
+    hitNumber: 7
+    hitPeriod: 2
+    appearancePeriod: 2
+    existanceDuration: 14
     poisonPoolPrefab: {fileID: 2258975573831735821, guid: 8c01e362ff0c9ac4c9f740daae0a02bb, type: 3}

@@ -17,4 +17,8 @@ MonoBehaviour:
   image: {fileID: 21300000, guid: a3977120025ce53479818d3f07bc2cd7, type: 3}
   cost: 0
   levels:
-  - period: 2.05
+  - period: 1
+  - period: 0.8
+  - period: 0.6
+  - period: 0.4
+  - period: 0.2

@@ -75,7 +75,6 @@ public class PoisonPool : MonoBehaviour
     {
         for (int i = 0; i < hitNumber; ++i)
         {
-            Debug.Log("Hit");
             health.TakeDamage(damage.Value);
             yield return new WaitForSeconds(hitPeriod.Value);
         }

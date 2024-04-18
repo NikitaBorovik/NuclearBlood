@@ -51,8 +51,6 @@ namespace App.Upgrades.ConcreteUpgrades.StandardStrategy.PlayerUpgrades
         private void MakeBig(BaseBullet bullet)
         {
             bullet.gameObject.transform.localScale = currentScaleMultiplier;
-            Debug.Log($"Next Scale = {currentScaleMultiplier}");
-            Debug.Log($"Actual Scale = {bullet.gameObject.transform.localScale}");
         }
     }
 }

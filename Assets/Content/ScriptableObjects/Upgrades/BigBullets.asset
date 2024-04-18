@@ -17,4 +17,8 @@ MonoBehaviour:
   image: {fileID: 21300000, guid: 6a28a92de841bd347801534fb6ebd46a, type: 3}
   cost: 0
   levels:
-  - bulletScale: {x: 1.5, y: 1.5, z: 0}
+  - bulletScale: {x: 1.5, y: 1.5, z: 1}
+  - bulletScale: {x: 2, y: 2, z: 1}
+  - bulletScale: {x: 2.5, y: 2.5, z: 1}
+  - bulletScale: {x: 3, y: 3, z: 1}
+  - bulletScale: {x: 3.5, y: 3.5, z: 1}

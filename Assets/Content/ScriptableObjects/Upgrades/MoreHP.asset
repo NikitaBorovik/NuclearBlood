@@ -17,6 +17,8 @@ MonoBehaviour:
   image: {fileID: 21300000, guid: caf462df25ce1d4418888b9f204ae6d2, type: 3}
   cost: 0
   levels:
-  - maxHP: 10
-  - maxHP: 30
-  - maxHP: 50
+  - maxHP: 125
+  - maxHP: 150
+  - maxHP: 175
+  - maxHP: 200
+  - maxHP: 250

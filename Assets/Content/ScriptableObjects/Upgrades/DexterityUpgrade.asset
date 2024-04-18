@@ -17,5 +17,8 @@ MonoBehaviour:
   image: {fileID: 21300000, guid: 58a27d2b38d4e1745bf560fb65fb543b, type: 3}
   cost: 0
   levels:
-  - dodgeChanceIncrease: 0.911
-  - dodgeChanceIncrease: 1
+  - dodgeChanceIncrease: 0.12
+  - dodgeChanceIncrease: 0.24
+  - dodgeChanceIncrease: 0.36
+  - dodgeChanceIncrease: 0.48
+  - dodgeChanceIncrease: 0.6

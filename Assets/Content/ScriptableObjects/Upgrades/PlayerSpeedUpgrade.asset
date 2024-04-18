@@ -17,6 +17,5 @@ MonoBehaviour:
   image: {fileID: 21300000, guid: 01a00c9e1bc5e824e86bef84a3daf1b8, type: 3}
   cost: 0
   levels:
-  - speedMultiplier: 1.54
-  - speedMultiplier: 2.31
-  - speedMultiplier: 3
+  - speedMultiplier: 1.1
+  - speedMultiplier: 1.2
